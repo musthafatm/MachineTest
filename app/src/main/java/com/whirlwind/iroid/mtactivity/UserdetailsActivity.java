@@ -26,6 +26,9 @@ public class UserdetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userdetails);
 
+        mtvdetailsuser = (TextView) findViewById(R.id.tvdetailsuser);
+        mtvdetailspassword = (TextView) findViewById(R.id.tvdetailspassword);
+
         mbtnswitch = (Switch) findViewById(R.id.btnswitch);
 
         //This is passing data by intent else we can just do getintent() and then retake user and password from shrdprfrnce using
@@ -45,7 +48,7 @@ public class UserdetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 Toast.makeText(UserdetailsActivity.this, "Auto Login is now OFF", Toast.LENGTH_LONG).show();
-                //AppstorageFactory.clearAll(UserdetailsActivity.this);
+                AppstorageFactory.clearAll(UserdetailsActivity.this);
             }
 
         });
