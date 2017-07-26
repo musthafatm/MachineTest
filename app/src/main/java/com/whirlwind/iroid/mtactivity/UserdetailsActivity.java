@@ -41,14 +41,17 @@ public class UserdetailsActivity extends AppCompatActivity {
         mtvdetailsuser.setText(detail1);
         mtvdetailspassword.setText(detail2);
 
-
         mbtnswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 Toast.makeText(UserdetailsActivity.this, "Auto Login is now OFF", Toast.LENGTH_LONG).show();
-                AppstorageFactory.clearAll(UserdetailsActivity.this);
+               // AppstorageFactory.clearAll(UserdetailsActivity.this);
+
+                AppstorageFactory.setUserLogged(false, UserdetailsActivity.this);
+
+
             }
 
         });
