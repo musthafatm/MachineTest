@@ -47,15 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (metusername.getText().toString().equals("") || metpassword.getText().toString().equals("")) {
             Toast.makeText(this, "Please fill your essentials", Toast.LENGTH_SHORT).show();
-        } else if (usernamedetail.equals(metusername.getText().toString()) &&
-                (userpassworddetail.equals(metpassword.getText().toString()))) {
-            Intent intent = new Intent(this, UserdetailsActivity.class);
-            intent.putExtra("detailsUsername", usernamedetail);
-            intent.putExtra("detailsPassword", userpassworddetail);
-            startActivity(intent);
-            Toast.makeText(this, "Login Success Second time", Toast.LENGTH_SHORT).show();
-            finish();
-        } else {
+        } else if (usernamedetail.length()<=0 && userpassworddetail.length()<=0) {
+
 
             saveToPref();
             Intent intent = new Intent(this, UserdetailsActivity.class);
@@ -65,7 +58,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Login Success First time", Toast.LENGTH_SHORT).show();
 
             finish();
+
+
+        } else if(usernamedetail.equals(metusername.getText().toString()) && userpassworddetail.equals(metpassword.getText().toString()) ){
+
+
+            Intent intent = new Intent(this, UserdetailsActivity.class);
+            intent.putExtra("detailsUsername", usernamedetail);
+            intent.putExtra("detailsPassword", userpassworddetail);
+            startActivity(intent);
+            Toast.makeText(this, "Login Success Second time", Toast.LENGTH_SHORT).show();
+            finish();
         }
+        else{
+            Toast.makeText(this, "Invalid username and password", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 

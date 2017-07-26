@@ -3,6 +3,8 @@ package com.whirlwind.iroid.mtactivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -40,8 +42,9 @@ public class UserdetailsActivity extends AppCompatActivity {
 
         mtvdetailsuser.setText(detail1);
         mtvdetailspassword.setText(detail2);
+        mbtnswitch.setChecked(AppstorageFactory.isAutoLogged(this));
 
-        mbtnswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    /*    mbtnswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -54,6 +57,23 @@ public class UserdetailsActivity extends AppCompatActivity {
 
             }
 
+        });*/
+
+
+
+        // Add OnCheckedChangeListener.
+        mbtnswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+                // Do your stuff here.
+
+                Toast.makeText(UserdetailsActivity.this, "Auto Login is now OFF", Toast.LENGTH_LONG).show();
+                AppstorageFactory.setUserLogged(isChecked, UserdetailsActivity.this);
+
+                AppstorageFactory.setAutoLogged(isChecked, UserdetailsActivity.this);
+            }
         });
 
 

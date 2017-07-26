@@ -30,6 +30,9 @@ public class AppStorage {
         return createSharedPreferences(context).getBoolean(key, false);
     }
 
+    public static boolean getBooleanTrue(String key, Context context) {
+        return createSharedPreferences(context).getBoolean(key, true);
+    }
 
     public static String getString(String key, Context context) {
         return createSharedPreferences(context).getString(key, "");
