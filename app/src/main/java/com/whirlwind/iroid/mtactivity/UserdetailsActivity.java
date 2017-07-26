@@ -68,12 +68,25 @@ public class UserdetailsActivity extends AppCompatActivity {
 
 
                 // Do your stuff here.
+               Boolean abc = AppstorageFactory.isAutoLogged(UserdetailsActivity.this);
+               if (abc == false) {
+                    Toast.makeText(UserdetailsActivity.this, "Auto Login is now ON", Toast.LENGTH_LONG).show();
 
-                Toast.makeText(UserdetailsActivity.this, "Auto Login is now OFF", Toast.LENGTH_LONG).show();
-                AppstorageFactory.setUserLogged(isChecked, UserdetailsActivity.this);
 
-                AppstorageFactory.setAutoLogged(isChecked, UserdetailsActivity.this);
+                    AppstorageFactory.setUserLogged(true, UserdetailsActivity.this);
+                    AppstorageFactory.setAutoLogged(true, UserdetailsActivity.this);
+
+                } else {
+
+
+                    Toast.makeText(UserdetailsActivity.this, "Auto Login is now OFF", Toast.LENGTH_LONG).show();
+                    AppstorageFactory.setUserLogged(isChecked, UserdetailsActivity.this);
+
+                    AppstorageFactory.setAutoLogged(isChecked, UserdetailsActivity.this);
+                }
+
             }
+
         });
 
 

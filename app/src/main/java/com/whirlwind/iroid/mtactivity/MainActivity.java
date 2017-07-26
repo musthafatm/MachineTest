@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("detailsUsername", metusername.getText().toString());
             intent.putExtra("detailsPassword", metpassword.getText().toString());
             startActivity(intent);
-            Toast.makeText(this, "Login Success First time", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
 
             finish();
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("detailsUsername", usernamedetail);
             intent.putExtra("detailsPassword", userpassworddetail);
             startActivity(intent);
-            Toast.makeText(this, "Login Success Second time", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show();
             finish();
         }
         else{
